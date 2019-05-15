@@ -1,0 +1,112 @@
+// Menu Button
+.menu-btn
+	cursor: pointer
+	@include easeOut
+	position: absolute
+	right: 35px
+	top: 35px
+	z-index: 3
+
+
+	.btn-line
+		background: set-text-color($primary-color)
+		height: 3px
+		@include easeOut
+		margin: 0 0 5px 0
+		width: 28px
+	
+	&.close
+		transform: rotate(180deg)
+
+		.btn-line
+			&:nth-child(1)
+				transform: rotate(45deg) translate(5px, 5px)
+			&:nth-child(2)
+				opacity: 0
+			&:nth-child(3)
+				transform: rotate(-45deg) translate(7px, -6px)
+
+// Menu Overlay
+.menu
+	opacity: 0.9
+	position: fixed
+	top: 0
+	visibility: hidden
+	width: 100%
+
+	&.show
+		visibility: visible
+
+	&-branding,
+	&-nav
+		align-items: center
+		display: flex
+		float: left
+		flex-flow: column wrap
+		height: 100vh
+		justify-content: center
+		overflow: hidden
+		width: 50%
+
+	&-nav
+		background: darken($primary-color, 5)
+		@include easeOut
+		list-style: none
+		margin: 0
+		padding: 0
+		transform: translate3d(0, -100%, 0)
+
+	
+		&.show
+			// Slide in from top
+			transform: translate3d(0, 0, 0)
+
+	// Branding Side
+	&-branding
+		background: $primary-color
+		@include easeOut
+		transform: translate3d(0, 100%, 0)
+
+
+		&.show
+			// Slide in from bottom
+			transform: translate3d(0, 0, 0)
+
+		.potrait
+			background: url('../images/p_2.jpg')
+			border-radius: 50%
+			border: solid 3px $secondary-color
+			height: 250px
+			width: 250px
+
+	// Nav
+	.nav-item
+		@include easeOut
+		transform: translate3d(600px, 0, 0)
+
+		&.show
+			//Slide in from right
+			transform: translate3d(0, 0, 0)
+
+		&.current > a
+			color: $secondary-color
+
+	.nav-link
+		color: set-text-color($primary-color)
+		display: inline-block
+		font-size: 30px
+		font-weight: 300
+		@include easeOut
+		position: relative
+		padding: 1rem 0
+		text-transform: uppercase
+		text-decoration: none
+
+		&:hover
+			color: $secondary-color
+
+//Delay each nav item slide by 0.1s
+@for $x from 1 through 4 
+	.nav-item:nth-child(#{$x})
+		transition-delay: $x * 0.1s
+  

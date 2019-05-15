@@ -1,0 +1,171 @@
+@import 'config'
+@import 'menu'
+
+// Global Styles
+html
+	font-size: 10px
+	height: 100%
+
+*
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+body
+	background: $primary-color
+	color: set-text-color($primary-color)
+	font-family: Geneva,Verdana,sans-serif
+	height: 100%
+	@include background
+	line-height: 1.5
+	margin: 0
+	padding: 0
+
+// Headings
+h1, 
+h2, 
+h3
+	font-weight: 400
+	margin: 0
+
+	&.lg-heading
+		font-size: 6rem
+
+	&.sm-heading
+		background: rgba(lighten($primary-color, 2), 0.5)
+		margin-bottom: 2rem
+		padding: 0.2rem 1rem
+
+a
+	color: #fff
+	text-decoration: none
+
+header
+	position: fixed
+	width: 100%
+	z-index: 2
+
+.text-secondary
+	color: $secondary-color
+
+main
+	padding: 4rem
+
+	.icons
+		margin-top: 1rem
+
+		a
+			padding: 0.4rem
+
+			&:hover
+				color: $secondary-color
+				@include easeOut
+  
+	&#home
+		overflow: hidden
+	h1
+		margin-top: 20vh
+
+//About Page
+.about-info
+	display: grid
+	grid-gap: 30px
+	grid-template-areas: 'bioimage bio bio' 'job1 job2 job3'
+	grid-template-columns: repeat(3, 1fr)
+
+.bio-image
+	border-radius: 50%
+	border: $secondary-color 3px solid
+	grid-area: bioimage
+	margin: auto
+
+.bio
+	font-size: 1.5rem
+	grid-area: bio
+
+
+.job-1
+	grid-area: job1
+
+.job-2
+	grid-area: job2
+
+.job-3
+	grid-area: job3
+
+.job
+	background: lighten($primary-color, 5)
+	border-bottom: $secondary-color 5px solid
+	padding: 0.5rem
+
+// Work/projects
+.projects
+	display: grid
+	grid-gap: 0.7rem
+	grid-template-columns: repeat(3, 1fr)
+
+	img
+		border: solid 3px #fff
+		width: 100%
+
+		&:hover
+			border-color: $secondary-color
+			@include easeOut
+			opacity: 0.5
+
+//Contact Page
+.boxes
+	align-items: center
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-evenly
+	margin-top: 1rem
+
+	div
+		border: solid 3px #fff
+		font-size: 2rem
+		@include easeOut
+		margin-bottom: 3rem
+		padding: 1.5rem 2.5rem
+
+		&:hover
+			background-color: $secondary-color
+			color: set-text-color($secondary-color)
+			padding: 0.5rem 1.5rem
+			span
+				color: set-text-color($secondary-color)
+	
+#contact
+	min-height: 100%
+
+//Button Styles
+.btn
+	border: 0
+	display: block
+	margin-bottom: 0.3rem
+	padding: 0.5rem 1rem
+	&:hover
+		background: $secondary-color
+		color: set-text-color($secondary-color)
+
+.btn-dark
+	background: darken($primary-color, 50)
+	color: #fff
+	@extend .btn
+
+.btn-light
+	background: lighten($primary-color, 50)
+	color: #333
+	@extend .btn
+
+// Footer
+#main-footer
+	background: darken($primary-color, 10)
+	color: set-text-color($primary-color)
+	height: 60px
+	padding: 1.25rem
+	text-align: center
+
+@import 'mobile'
+
+
